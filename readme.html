@@ -124,23 +124,22 @@ li {
           <td align="left" valign="top">
             <p> Python for .NET is a package that gives Python programmers
               nearly seamless integration with the .NET Common Language Runtime
-              (CLR) and provides a powerful application scripting tool for .NET
+              (CLR) and Mono and provides a powerful application scripting tool for .NET
               developers. Using this package you can script .NET applications or
               build entire applications in Python, using .NET services and
-              components written in any language that targets the CLR (Managed
-              C++, C#, VB, JScript).
+              components written in any language that targets the CLR (C#, VB.NET, F#, C++/CLI).
             </p>
             <p> Note that this package does <em>not</em> implement Python as a
               first-class CLR language - it does not produce managed code (IL)
-              from Python code. Rather, it is an integration of the C Python
-              engine with the .NET runtime. This approach allows you to use use
-              CLR services and continue to use existing Python code and C-based
+              from Python code. Rather, it is an integration of the CPython
+              engine with the .NET or Mono runtime. This approach allows you to use use
+              CLR services and continue to use existing Python code and C-API
               extensions while maintaining native execution speeds for Python
               code. If you are interested in a pure managed-code implementation
               of the Python language, you should check out the <a href="http://www.ironpython.com">IronPython</a>
               project, which is in active development.
             </p>
-            <p> Python for .NET is currently compatible with Python releases 2.3
+            <p> Python for .NET is currently compatible with Python releases 2.6
               and greater. Current releases are available at the <a href="http://pythonnet.github.io/">
                 Python for .NET website </a>. To subscribe to the <a href="http://mail.python.org/mailman/listinfo/pythondotnet">
                 Python for .NET mailing list </a> or read the <a href="http://mail.python.org/pipermail/pythondotnet/">
@@ -164,17 +163,15 @@ li {
               to have installed Python on your machine before using the source
               release.
             </p>
-            <p> <strong>Running on Linux/Mono:</strong> preliminary testing
+            <p> <strong>Running on Linux/Mono:</strong> Unit testing
               shows that PythonNet will run under <a href="http://www.go-mono.com">Mono</a>,
-              though the Mono runtime is not yet complete so there still may be
-              problems. The Python for .NET integration layer is 100% managed
-              code, so there should be no long-term issues under Mono - it
-              should work better and better as the Mono platform matures.
+              though the Mono runtime is less supported so there still may be
+              problems.
             </p>
             <p> Note that if you are running under Mono on a *nix system, you
               will need to have a compatible version of Python installed. You
               will also need to create a symbolic link to the copy of
-              libpython2.x.so (in your existing Python installation) in the
+              libpython[v].x.so (in your existing Python installation) in the
               PythonNet directory. This is needed to ensure that the mono
               interop dll loader will find it by name. For example:
             </p>
@@ -186,7 +183,7 @@ li {
               "work just the way you'd expect in Python", except for cases that
               are .NET specific (in which case the goal is to work "just the way
               you'd expect in C#"). In addition, with the IronPython project
-              gaining traction, it is my goal that code written for IronPython
+              having established a community, it is my goal that code written for IronPython
               run without modification under Python for .NET.
             </p>
             <p> If you already know Python, you can probably finish this readme
