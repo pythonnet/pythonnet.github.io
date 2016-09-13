@@ -122,9 +122,10 @@ li {
             </ul>
           </td>
           <td align="left" valign="top">
-            <p> Python for .NET is a package that gives Python programmers
-              nearly seamless integration with the .NET Common Language Runtime
-              (CLR) and Mono and provides a powerful application scripting tool for .NET
+            <p> Python for .NET (pythonnet) is a package that gives Python programmers
+              nearly seamless integration with the .NET 4.0+ Common Language Runtime
+              (CLR) on Windows and Mono runtime on Linux and OSX. 
+              Python for .NET provides a powerful application scripting tool for .NET
               developers. Using this package you can script .NET applications or
               build entire applications in Python, using .NET services and
               components written in any language that targets the CLR (C#, VB.NET, F#, C++/CLI).
@@ -139,8 +140,8 @@ li {
               of the Python language, you should check out the <a href="http://www.ironpython.com">IronPython</a>
               project, which is in active development.
             </p>
-            <p> Python for .NET is currently compatible with Python releases 2.7
-              and greater. Current releases are available at the <a href="http://pythonnet.github.io/">
+            <p> Python for .NET is currently compatible with Python releases 2.7, 3.3, 3.4, and 3.5.
+                Current releases are available at the <a href="http://pythonnet.github.io/">
                 Python for .NET website </a>. To subscribe to the <a href="http://mail.python.org/mailman/listinfo/pythondotnet">
                 Python for .NET mailing list </a> or read the <a href="http://mail.python.org/pipermail/pythondotnet/">
                 online archives </a> of the list, see the <a href="http://mail.python.org/mailman/listinfo/pythondotnet">
@@ -148,17 +149,18 @@ li {
             <a name="#installation"></a>
             <h2>Installation</h2>
             <p> Python for .NET is available as a source release and as a
-              Windows installer for various versions of Python and the common
-              language runtime from the <a href="http://pythonnet.github.io/">
-                Python for .NET website </a>. On Windows platforms, you can
+              binary wheel distribution for all supported versions of Python 
+              and the common language runtime from the <a href="http://pythonnet.github.io/">
+              Python for .NET website </a>. On Windows platforms, you can
               choose to install .NET-awareness into an existing Python
               installation as well as install Python for .NET as a standalone
               package.
             </p>
             
             <p> The source release is a self-contained "private" assembly. Just
-              unzip the package wherever you want it, cd to that directory and
-              run python.exe to start using it. Note that the source release
+              unzip the package wherever you want it, cd to that directory, 
+              build the solution <strong>python setup.py build_ext --inplace</strong>,
+              and run npython.exe to start using it. Note that the source release
               does not include a copy of the CPython runtime, so you will need
               to have installed Python on your machine before using the source
               release.
