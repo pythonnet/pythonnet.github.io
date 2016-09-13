@@ -139,7 +139,7 @@ li {
               of the Python language, you should check out the <a href="http://www.ironpython.com">IronPython</a>
               project, which is in active development.
             </p>
-            <p> Python for .NET is currently compatible with Python releases 2.6
+            <p> Python for .NET is currently compatible with Python releases 2.7
               and greater. Current releases are available at the <a href="http://pythonnet.github.io/">
                 Python for .NET website </a>. To subscribe to the <a href="http://mail.python.org/mailman/listinfo/pythondotnet">
                 Python for .NET mailing list </a> or read the <a href="http://mail.python.org/pipermail/pythondotnet/">
@@ -168,15 +168,6 @@ li {
               though the Mono runtime is less supported so there still may be
               problems.
             </p>
-            <p> Note that if you are running under Mono on a *nix system, you
-              will need to have a compatible version of Python installed. You
-              will also need to create a symbolic link to the copy of
-              libpython[v].x.so (in your existing Python installation) in the
-              PythonNet directory. This is needed to ensure that the mono
-              interop dll loader will find it by name. For example:
-            </p>
-            <pre>    ln -s /usr/lib/libpython2.4.so ./python24.so
-</pre>
             <a name="getting_started"></a>
             <h2>Getting Started</h2>
             <p> A key goal for this project has been that Python for .NET should
