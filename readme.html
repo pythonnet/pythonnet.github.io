@@ -148,13 +148,11 @@ li {
                 mailing list information </a> page. </p>
             <a name="#installation"></a>
             <h2>Installation</h2>
-            <p> Python for .NET is available as a source release and as a
-              binary wheel distribution for all supported versions of Python 
-              and the common language runtime from the <a href="http://pythonnet.github.io/">
-              Python for .NET website </a>. On Windows platforms, you can
-              choose to install .NET-awareness into an existing Python
-              installation as well as install Python for .NET as a standalone
-              package.
+            <p> Python for .NET is available as a source release on 
+              <a href="https://github.com/pythonnet/pythonnet/releases"> GitHub </a>
+              and as a binary wheel distribution for all supported versions of Python 
+              and the common language runtime from the <a href="https://pypi.python.org/pypi/pythonnet">
+              Python Package Index </a>.
             </p>
             
             <p> The source release is a self-contained "private" assembly. Just
@@ -210,7 +208,7 @@ li {
               <em> Note that earlier releases of Python for .NET required you to
                 import modules through a special top-level package named <code>CLR</code>.
                 This is no longer required if you are starting python from the
-                managed python.exe from this distribution.<br>
+                managed npython.exe from this distribution.<br>
                 <code>CLR</code> has been deprecated in favor of the more
                 pythonic <code>clr</code>, though the syntax is still supported
                 for backward compatibility.
@@ -266,8 +264,7 @@ li {
 </pre>
             <a name="generics"></a>
             <h2>Using Generics</h2>
-            <p> When running under versions of the .NET runtime greater than
-              2.0, you can use generic types. A generic type must be bound to
+            <p> Pythonnet also supports generic types. A generic type must be bound to
               create a concrete type before it can be instantiated. Generic
               types support the subscript syntax to create bound types:
             </p>
