@@ -4,7 +4,7 @@
     <style type="text/css"><!--
 
 body { 
-  font: 8pt/16pt georgia,verdana; 
+  font: 12pt/18pt georgia,verdana; 
   text-decoration: none;
   color: #555753; 
   background: #ffffff;
@@ -12,11 +12,11 @@ body {
 }
 
 p { 
-  font: 8pt/16pt georgia; 
+  font: 12pt/18pt georgia; 
 }
 
 h1 { 
-  font: bold 14pt;
+  font: bold 16pt;
   color: #000044;
 /*
   background-color: #EFEFFF;
@@ -68,13 +68,13 @@ pre {
 }
 
 li { 
-  font: 8pt/16pt georgia,verdana; 
+  font: 12pt/18pt georgia,verdana; 
   text-decoration: none;
   color: #555753; 
 }
 
 .spacer {
-  font: bold 14pt;
+  font: bold 16pt;
 }
 
 .menu {
@@ -122,71 +122,63 @@ li {
             </ul>
           </td>
           <td align="left" valign="top">
-            <p> Python for .NET is a package that gives Python programmers
-              nearly seamless integration with the .NET Common Language Runtime
-              (CLR) and provides a powerful application scripting tool for .NET
+            <p> Python for .NET (pythonnet) is a package that gives Python programmers
+              nearly seamless integration with the .NET 4.0+ Common Language Runtime
+              (CLR) on Windows and Mono runtime on Linux and OSX. 
+              Python for .NET provides a powerful application scripting tool for .NET
               developers. Using this package you can script .NET applications or
               build entire applications in Python, using .NET services and
-              components written in any language that targets the CLR (Managed
-              C++, C#, VB, JScript).
+              components written in any language that targets the CLR (C#, VB.NET, F#, C++/CLI).
             </p>
             <p> Note that this package does <em>not</em> implement Python as a
               first-class CLR language - it does not produce managed code (IL)
-              from Python code. Rather, it is an integration of the C Python
-              engine with the .NET runtime. This approach allows you to use use
-              CLR services and continue to use existing Python code and C-based
+              from Python code. Rather, it is an integration of the CPython
+              engine with the .NET or Mono runtime. This approach allows you to use use
+              CLR services and continue to use existing Python code and C-API
               extensions while maintaining native execution speeds for Python
               code. If you are interested in a pure managed-code implementation
               of the Python language, you should check out the <a href="http://www.ironpython.com">IronPython</a>
               project, which is in active development.
             </p>
-            <p> Python for .NET is currently compatible with Python releases 2.3
-              and greater. Current releases are available at the <a href="http://pythonnet.github.io/">
+            <p> Python for .NET is currently compatible with Python releases 2.7, 3.3, 3.4, and 3.5.
+                Current releases are available at the <a href="http://pythonnet.github.io/">
                 Python for .NET website </a>. To subscribe to the <a href="http://mail.python.org/mailman/listinfo/pythondotnet">
                 Python for .NET mailing list </a> or read the <a href="http://mail.python.org/pipermail/pythondotnet/">
                 online archives </a> of the list, see the <a href="http://mail.python.org/mailman/listinfo/pythondotnet">
                 mailing list information </a> page. </p>
             <a name="#installation"></a>
             <h2>Installation</h2>
-            <p> Python for .NET is available as a source release and as a
-              Windows installer for various versions of Python and the common
-              language runtime from the <a href="http://pythonnet.github.io/">
-                Python for .NET website </a>. On Windows platforms, you can
-              choose to install .NET-awareness into an existing Python
-              installation as well as install Python for .NET as a standalone
-              package.
+            <p> Python for .NET is available as a source release on 
+              <a href="https://github.com/pythonnet/pythonnet/releases"> GitHub </a>
+              and as a binary wheel distribution for all supported versions of Python 
+              and the common language runtime from the <a href="https://pypi.python.org/pypi/pythonnet">
+              Python Package Index </a>.
             </p>
             
             <p> The source release is a self-contained "private" assembly. Just
-              unzip the package wherever you want it, cd to that directory and
-              run python.exe to start using it. Note that the source release
-              does not include a copy of the CPython runtime, so you will need
-              to have installed Python on your machine before using the source
-              release.
+              unzip the package wherever you want it, cd to that directory, 
+              build the solution <strong>python setup.py build_ext --inplace</strong>.
+              Once you start up Python or IPython interpreter in this directory or
+              append this directory to <strong>sys.path</strong>, 
+              then after <strong>import clr</strong> statement .NET assemblies can be used. 
+              You can also run npython.exe to check how python can be embedded 
+              in console .NET application. 
+              Note that the source release does not include a copy of the CPython runtime, 
+              so you will need to have installed Python on your machine before using 
+              the source release.
             </p>
-            <p> <strong>Running on Linux/Mono:</strong> preliminary testing
+            <p> <strong>Running on Linux/Mono:</strong> Unit testing
               shows that PythonNet will run under <a href="http://www.go-mono.com">Mono</a>,
-              though the Mono runtime is not yet complete so there still may be
-              problems. The Python for .NET integration layer is 100% managed
-              code, so there should be no long-term issues under Mono - it
-              should work better and better as the Mono platform matures.
+              though the Mono runtime is less supported so there still may be
+              problems.
             </p>
-            <p> Note that if you are running under Mono on a *nix system, you
-              will need to have a compatible version of Python installed. You
-              will also need to create a symbolic link to the copy of
-              libpython2.x.so (in your existing Python installation) in the
-              PythonNet directory. This is needed to ensure that the mono
-              interop dll loader will find it by name. For example:
-            </p>
-            <pre>    ln -s /usr/lib/libpython2.4.so ./python24.so
-</pre>
             <a name="getting_started"></a>
             <h2>Getting Started</h2>
             <p> A key goal for this project has been that Python for .NET should
               "work just the way you'd expect in Python", except for cases that
               are .NET specific (in which case the goal is to work "just the way
               you'd expect in C#"). In addition, with the IronPython project
-              gaining traction, it is my goal that code written for IronPython
+              having established a community, it is my goal that code written for IronPython
               run without modification under Python for .NET.
             </p>
             <p> If you already know Python, you can probably finish this readme
@@ -195,17 +187,12 @@ li {
               you probably just need to pick up one of the many good Python
               books or read the Python tutorial online to get started.
             </p>
-            <p> A good way to start is to run <strong>python.exe</strong> and
-              follow along with the examples in this document. If you get stuck,
+            <p> A good way to start is to interactively explore 
+              .NET usage in python interpreter by
+              following along with the examples in this document. If you get stuck,
               there are also a number of demos and unit tests located in the
               source directory of the distribution that can be helpful as
               examples.
-            </p>
-            <p> Note that if you have installed CLR support into your existing
-              Python installation (rather than using the included python.exe),
-              you will need to use the line: "'import clr" (lower-case!) to
-              initially load the clr extension module before trying the
-              following examples.
             </p>
             <a name="importing"></a>
             <h2>Importing Modules</h2>
@@ -216,16 +203,6 @@ li {
             <pre>    from System import String
     from System.Collections import *
 </pre>
-            <p>
-              <em> Note that earlier releases of Python for .NET required you to
-                import modules through a special top-level package named <code>CLR</code>.
-                This is no longer required if you are starting python from the
-                managed python.exe from this distribution.<br>
-                <code>CLR</code> has been deprecated in favor of the more
-                pythonic <code>clr</code>, though the syntax is still supported
-                for backward compatibility.
-              </em>
-            </p>
             <p> Types from any loaded assembly may be imported and used in this
               manner. To load an assembly, use the "AddReference" function in
               the "clr" module:
@@ -276,8 +253,7 @@ li {
 </pre>
             <a name="generics"></a>
             <h2>Using Generics</h2>
-            <p> When running under versions of the .NET runtime greater than
-              2.0, you can use generic types. A generic type must be bound to
+            <p> Pythonnet also supports generic types. A generic type must be bound to
               create a concrete type before it can be instantiated. Generic
               types support the subscript syntax to create bound types:
             </p>
