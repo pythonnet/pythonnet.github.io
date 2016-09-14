@@ -157,11 +157,15 @@ li {
             
             <p> The source release is a self-contained "private" assembly. Just
               unzip the package wherever you want it, cd to that directory, 
-              build the solution <strong>python setup.py build_ext --inplace</strong>,
-              and run npython.exe to start using it. Note that the source release
-              does not include a copy of the CPython runtime, so you will need
-              to have installed Python on your machine before using the source
-              release.
+              build the solution <strong>python setup.py build_ext --inplace</strong>.
+              Once you start up Python or IPython interpreter in this directory or
+              append this directory to <strong>sys.path</strong>, 
+              then after <strong>import clr</strong> statement .NET assemblies can be used. 
+              You can also run npython.exe to check how python can be embedded 
+              in console .NET application. 
+              Note that the source release does not include a copy of the CPython runtime, 
+              so you will need to have installed Python on your machine before using 
+              the source release.
             </p>
             <p> <strong>Running on Linux/Mono:</strong> Unit testing
               shows that PythonNet will run under <a href="http://www.go-mono.com">Mono</a>,
@@ -183,17 +187,12 @@ li {
               you probably just need to pick up one of the many good Python
               books or read the Python tutorial online to get started.
             </p>
-            <p> A good way to start is to run <strong>npython.exe</strong> and
-              follow along with the examples in this document. If you get stuck,
+            <p> A good way to start is to interactively explore 
+              .NET usage in python interpreter by
+              following along with the examples in this document. If you get stuck,
               there are also a number of demos and unit tests located in the
               source directory of the distribution that can be helpful as
               examples.
-            </p>
-            <p> Note that if you have installed CLR support into your existing
-              Python installation (rather than using the included npython.exe),
-              you will need to use the line: "'import clr" (lower-case!) to
-              initially load the clr extension module before trying the
-              following examples.
             </p>
             <a name="importing"></a>
             <h2>Importing Modules</h2>
@@ -204,16 +203,6 @@ li {
             <pre>    from System import String
     from System.Collections import *
 </pre>
-            <p>
-              <em> Note that earlier releases of Python for .NET required you to
-                import modules through a special top-level package named <code>CLR</code>.
-                This is no longer required if you are starting python from the
-                managed npython.exe from this distribution.<br>
-                <code>CLR</code> has been deprecated in favor of the more
-                pythonic <code>clr</code>, though the syntax is still supported
-                for backward compatibility.
-              </em>
-            </p>
             <p> Types from any loaded assembly may be imported and used in this
               manner. To load an assembly, use the "AddReference" function in
               the "clr" module:
