@@ -1,14 +1,34 @@
 # Python for .NET
 
-Python for .NET (pythonnet) is a package that gives Python programmers nearly seamless integration with the .NET 4.0+ Common Language Runtime (CLR) on Windows and Mono runtime on Linux and OSX. Python for .NET provides a powerful application scripting tool for .NET developers. Using this package you can script .NET applications or build entire applications in Python, using .NET services and components written in any language that targets the CLR (C#, VB.NET, F#, C++/CLI).
+Python for .NET (`pythonnet`) is a package that gives Python programmers
+nearly seamless integration with the .NET 4.0+ Common Language Runtime
+(CLR) on Windows and Mono runtime on Linux and OSX. Python for .NET
+provides a powerful application scripting tool for .NET developers.
+Using this package you can script .NET applications or build entire
+applications in Python, using .NET services and components written in
+any language that targets the CLR (C#, VB.NET, F#, C++/CLI).
 
-Note that this package does _not_ implement Python as a first-class CLR language - it does not produce managed code (IL) from Python code. Rather, it is an integration of the CPython engine with the .NET or Mono runtime. This approach allows you to use CLR services and continue to use existing Python code and C-API extensions while maintaining native execution speeds for Python code. If you are interested in a pure managed-code implementation of the Python language, you should check out the [IronPython][1] project, which is in active development.
+Note that this package does _not_ implement Python as a first-class CLR
+language - it does not produce managed code (IL) from Python code. Rather,
+it is an integration of the CPython engine with the .NET or Mono runtime.
+This approach allows you to use CLR services and continue to use existing
+Python code and C-API extensions while maintaining native execution
+speeds for Python code. If you are interested in a pure managed-code
+implementation of the Python language, you should check out the
+[IronPython][1] project, which is in active development.
 
-Python for .NET is currently compatible and tested with Python releases 2.7, 3.3, 3.4, 3.5, and 3.6. Current releases are available at the [ Python for .NET website ][2]. To subscribe to the [ Python for .NET mailing list ][3] or read the [ online archives ][4] of the list, see the [ mailing list information ][3] page.
+Python for .NET is currently compatible and tested with Python releases
+`2.7`, `3.3`, `3.4`, `3.5`, and `3.6`.
+Current releases are available at the [Python for .NET website][2].
+To subscribe to the [Python for .NET mailing list][3] or read the
+[online archives][4] of the list, see the [mailing list information][3]
+page.
 
 ## Installation
 
-Python for .NET is available as a source release on [ GitHub ][5] and as a binary wheel distribution for all supported versions of Python and the common language runtime from the [ Python Package Index ][6].
+Python for .NET is available as a source release on [GitHub][5] and as a
+binary wheel distribution for all supported versions of Python and the
+common language runtime from the [Python Package Index][6].
 
 The source release is a self-contained "private" assembly. Just unzip the package wherever you want it, cd to that directory, build the solution **python setup.py build_ext --inplace**. Once you start up Python or IPython interpreter in this directory or append this directory to **sys.path**, then after **import clr** statement .NET assemblies can be used. You can also run **nPython.exe** (**mono nPython.exe** on *nix) to check how python can be embedded in console .NET application. Note that the source release does not include a copy of the CPython runtime, so you will need to have installed Python on your machine before using the source release.
 
