@@ -161,7 +161,7 @@ li {
               Once you start up Python or IPython interpreter in this directory or
               append this directory to <strong>sys.path</strong>, 
               then after <strong>import clr</strong> statement .NET assemblies can be used. 
-              You can also run <strong>nPython.exe</strong> (<strong>Mono nPython.exe</strong> on *nix) 
+              You can also run <strong>nPython.exe</strong> (<strong>mono nPython.exe</strong> on *nix) 
               to check how python can be embedded in console .NET application. 
               Note that the source release does not include a copy of the CPython runtime, 
               so you will need to have installed Python on your machine before using 
@@ -339,7 +339,7 @@ li {
             </p>
             <pre>    from System import Environment
 
-    print Environment.GetFolderPath.__doc__
+    print(Environment.GetFolderPath.__doc__)
 
     help(Environment)
 </pre>
@@ -375,7 +375,7 @@ li {
               callable when it is called:
             </p>
             <pre>    def my_handler(source, args):
-        print 'my_handler called!'
+        print('my_handler called!')
 
     # instantiate a delegate
     d = AssemblyLoadEventHandler(my_handler)
@@ -401,7 +401,7 @@ li {
               way very similar to the C# idiom:
             </p>
             <pre>    def handler(source, args):
-        print 'my_handler called!'
+        print('my_handler called!')
 
     # register event handler
     object.SomeEvent += handler
@@ -422,8 +422,8 @@ li {
     try:
         raise NullReferenceException("aiieee!")
     except NullReferenceException, e:
-        print e.Message
-        print e.Source
+        print(e.Message)
+        print(e.Source)
 </pre>
             <p></p>
             <a name="arrays"></a>
