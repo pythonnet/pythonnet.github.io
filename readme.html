@@ -115,7 +115,7 @@ li {
               <li><a href="#exceptions">Exception Handling</a></li>
               <li><a href="#arrays">Using Arrays</a></li>
               <li><a href="#collections">Using Collections</a></li>
-              <li><a href="#com">COM Components</a></li>
+              <li><a href="#com">COM Componefnts</a></li>
               <li><a href="#types">Type Conversion</a></li>
               <li><a href="#embedding">Embedding Python</a></li>
               <li><a href="#license">License</a></li>
@@ -577,12 +577,15 @@ li {
             </p>
             <p> The Python runtime assembly defines a number of public classes
               that provide a subset of the functionality provided by the Python
-              C API.
+              C-API.
             </p>
-            <p> These classes include PyObject, PyList, PyDict, etc. The source
-              and the unit tests are currently the only API documentation.. The
-              rhythym is very similar to using Python C++ wrapper solutions such
-              as CXX.
+            <p> These classes include PyObject, PyList, PyDict, PyTuple, etc. 
+              You can review the nPython.exe source code in in "Console.csproj" project 
+              for example of embedding CPython in console .NET app.
+              Please refer to this README GitHub page for new simplified embedding API:
+              
+              https://github.com/pythonnet/pythonnet/blob/master/README.md
+              
             </p>
             <p> At a very high level, to embed Python in your application you
               will need to:
@@ -607,7 +610,7 @@ li {
               free-threaded and uses a global interpreter lock to allow
               multi-threaded applications to interact safely with the Python
               interpreter. Much more information about this is available in the
-              Python C API documentation on the www.python.org Website.
+              Python C-API documentation on the www.python.org Website.
             </p>
             <p> When embedding Python in a managed application, you have to
               manage the GIL in just the same way you would when embedding
