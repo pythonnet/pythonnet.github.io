@@ -24,7 +24,7 @@ To subscribe to the [Python for .NET mailing list][3] or read the
 [online archives][4] of the list, see the [mailing list information][3]
 page. Use the [Python for .NET issue tracker][55] to report issues.
 
--   The [README][66] provides a detailed overview of Python for .NET,
+-   This page provides a detailed overview of Python for .NET,
     as well as some basic usage examples. Many other examples can be
     found in the demos and unit tests for the package.
 -   Checkout the [PythonNet][77] code from github.
@@ -554,7 +554,5 @@ standard library, which are covered by the [Python license][10].
 [10]: http://www.python.org/license.html
 
 [55]: http://github.com/pythonnet/pythonnet/issues
-
-[66]: http://pythonnet.github.io/readme.html
 
 [77]: http://github.com/pythonnet/pythonnet
