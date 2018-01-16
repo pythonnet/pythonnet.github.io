@@ -13,9 +13,7 @@ language - it does not produce managed code (IL) from Python code. Rather,
 it is an integration of the CPython engine with the .NET or Mono runtime.
 This approach allows you to use CLR services and continue to use existing
 Python code and C-API extensions while maintaining native execution
-speeds for Python code. If you are interested in a pure managed-code
-implementation of the Python language, you should check out the
-[IronPython][1] project, which is in active development.
+speeds for Python code.
 
 Python for .NET is currently compatible and tested with Python releases
 `2.7`, `3.3`, `3.4`, `3.5`, and `3.6`.
