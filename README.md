@@ -517,17 +517,9 @@ which may be called at startup without having acquired the GIL.
 
 When finished using Python APIs, managed code must call a corresponding
 `PythonEngine.ReleaseLock` to release the GIL and allow other threads
-to use Python:
+to use Python.
 
-```csharp
-IntPtr gilState = PythonEngine.AcquireLock();
-
-PythonEngine.Exec("doStuff()");
-
-PythonEngine.ReleaseLock(gilState);
-```
-
-A `using` statement may also be used to acquire and release the GIL:
+A `using` statement may be used to acquire and release the GIL:
 
 ```csharp
 using (Py.GIL())
@@ -561,9 +553,9 @@ public class Person
 ```
 
 In order to pass a C# object to the Python runtime, it must be converted to a
-`PyObject`. This is done using the `ToPython` extension method. The `PyObject`
-may then be added to a dictionary of local variables and passed to the
-`PythonEngine.Exec` function:
+`PyObject`. This is done using the `ToPython()` extension method. The `PyObject`
+may then be set as a variable in a `PyScope`. Code executed from the scope
+will have access to the variable:
 
 ```csharp
 // create a person object
@@ -572,16 +564,19 @@ Person person = new Person("John", "Smith");
 // acquire the GIL before using the Python interpreter
 using (Py.GIL())
 {
-    // convert the Person object to a PyObject
-    PyObject pyPerson = person.ToPython();
+    // create a Python scope
+    using (PyScope scope = Py.CreateScope())
+    {
+        // convert the Person object to a PyObject
+        PyObject pyPerson = person.ToPython();
 
-    // create a Python variable "person"
-    PyDict locals = new PyDict();
-    locals["person"] = pyPerson;
+        // create a Python variable "person"
+        scope.Set("person", pyPerson);
 
-    // the person object may now be used in Python
-    string code = "fullName = person.FirstName + ' ' + person.LastName";
-    PythonEngine.Exec(code, null, locals.Handle);
+        // the person object may now be used in Python
+        string code = "fullName = person.FirstName + ' ' + person.LastName";
+        scope.Exec(code);
+    }
 }
 ```
 
