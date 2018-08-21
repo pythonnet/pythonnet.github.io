@@ -519,10 +519,66 @@ When finished using Python APIs, managed code must call a corresponding
 `PythonEngine.ReleaseLock` to release the GIL and allow other threads
 to use Python.
 
+A `using` statement may be used to acquire and release the GIL:
+
+```csharp
+using (Py.GIL())
+{
+    PythonEngine.Exec("doStuff()");
+}
+```
+
 The AcquireLock and ReleaseLock methods are thin wrappers over the
 unmanaged `PyGILState_Ensure` and `PyGILState_Release` functions from
 the Python API, and the documentation for those APIs applies to
 the managed versions.
+
+## Passing C# Objects to the Python Engine
+
+This section demonstrates how to pass a C# object to the Python runtime.
+The example uses the following `Person` class:
+
+```csharp
+public class Person
+{
+    public Person(string firstName, string lastName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+    }
+
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+}
+```
+
+In order to pass a C# object to the Python runtime, it must be converted to a
+`PyObject`. This is done using the `ToPython()` extension method. The `PyObject`
+may then be set as a variable in a `PyScope`. Code executed from the scope
+will have access to the variable:
+
+```csharp
+// create a person object
+Person person = new Person("John", "Smith");
+
+// acquire the GIL before using the Python interpreter
+using (Py.GIL())
+{
+    // create a Python scope
+    using (PyScope scope = Py.CreateScope())
+    {
+        // convert the Person object to a PyObject
+        PyObject pyPerson = person.ToPython();
+
+        // create a Python variable "person"
+        scope.Set("person", pyPerson);
+
+        // the person object may now be used in Python
+        string code = "fullName = person.FirstName + ' ' + person.LastName";
+        scope.Exec(code);
+    }
+}
+```
 
 ## License
 
