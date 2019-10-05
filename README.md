@@ -124,7 +124,7 @@ iPy compatible "Overloads", on a class:
 from System import String, Char, Int32
 
 s = String.Overloads[Char, Int32]('A', 10)
-s = String.__overloads[__Char, Int32]('A', 10)
+s = String.__overloads__[Char, Int32]('A', 10)
 ```
 
 ## Using Generics
@@ -242,7 +242,7 @@ from System import Console
 
 Console.WriteLine.Overloads[bool](true)
 Console.WriteLine.Overloads[str]("true")
-Console.WriteLine.__overloads[__int](42)
+Console.WriteLine.__overloads__[int](42)
 ```
 
 Similarly, generic methods may be bound at runtime using the subscript
