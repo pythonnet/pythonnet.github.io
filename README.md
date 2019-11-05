@@ -480,7 +480,7 @@ You can review the nPython.exe source code in in "Console.csproj" project
 for example of embedding CPython in console .NET app. Please refer to
 this README GitHub page for new simplified embedding API:
 
-[README.md][8]
+[README.rst][8]
 
 At a very high level, to embed Python in your application you will need to:
 
@@ -603,7 +603,7 @@ standard library, which are covered by the [Python license][10].
 
 [7]: http://www.go-mono.com
 
-[8]: https://github.com/pythonnet/pythonnet/blob/master/README.md
+[8]: https://github.com/pythonnet/pythonnet/blob/master/README.rst#embedding-python-in-net
 
 [9]: http://pythonnet.github.io/LICENSE
 
