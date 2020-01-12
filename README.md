@@ -485,7 +485,7 @@ this README GitHub page for new simplified embedding API:
 At a very high level, to embed Python in your application you will need to:
 
 -   Reference Python.Runtime.dll in your build environment
--   Call PythonEngine.Intialize() to initialize Python
+-   Call PythonEngine.Initialize() to initialize Python
 -   Call PythonEngine.ImportModule(name) to import a module
 
 The module you import can either start working with your managed app
