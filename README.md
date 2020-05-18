@@ -1,8 +1,8 @@
-# Python for .NET
+# Python.NET
 
-Python for .NET (`pythonnet`) is a package that gives Python programmers
+Python.NET (`pythonnet`) is a package that gives Python programmers
 nearly seamless integration with the .NET 4.0+ Common Language Runtime
-(CLR) on Windows and Mono runtime on Linux and OSX. Python for .NET
+(CLR) on Windows and Mono runtime on Linux and OSX. Python.NET
 provides a powerful application scripting tool for .NET developers.
 Using this package you can script .NET applications or build entire
 applications in Python, using .NET services and components written in
@@ -17,14 +17,14 @@ speeds for Python code. If you are interested in a pure managed-code
 implementation of the Python language, you should check out the
 [IronPython][1] project, which is in active development.
 
-Python for .NET is currently compatible and tested with Python releases
-2.7 and 3.5-3.7.
-Current releases are available at the [Python for .NET website][2].
-To subscribe to the [Python for .NET mailing list][3] or read the
+Python.NET is currently compatible and tested with Python releases
+2.7 and 3.5-3.8.
+Current releases are available at the [Python.NET website][2].
+To subscribe to the [Python.NET mailing list][3] or read the
 [online archives][4] of the list, see the [mailing list information][3]
-page. Use the [Python for .NET issue tracker][55] to report issues.
+page. Use the [Python.NET issue tracker][55] to report issues.
 
--   This page provides a detailed overview of Python for .NET,
+-   This page provides a detailed overview of Python.NET,
     as well as some basic usage examples. Many other examples can be
     found in the demos and unit tests for the package.
 -   Checkout the [PythonNet][77] code from github.
@@ -32,7 +32,7 @@ page. Use the [Python for .NET issue tracker][55] to report issues.
 
 ## Installation
 
-Python for .NET is available as a source release on [GitHub][5] and as a
+Python.NET is available as a source release on [GitHub][5] and as a
 binary wheel distribution for all supported versions of Python and the
 common language runtime from the [Python Package Index][6].
 
@@ -53,12 +53,12 @@ may be problems.
 
 ## Getting Started
 
-A key goal for this project has been that Python for .NET should
+A key goal for this project has been that Python.NET should
 "work just the way you'd expect in Python", except for cases that are
 .NET specific (in which case the goal is to work "just the way
 you'd expect in C#"). In addition, with the IronPython project having
 established a community, it is my goal that code written for IronPython
-run without modification under Python for .NET.
+run without modification under Python.NET.
 
 If you already know Python, you can probably finish this readme and then
 refer to .NET docs to figure out anything you need to do. Conversely if
@@ -73,7 +73,7 @@ source directory of the distribution that can be helpful as examples.
 
 ## Importing Modules
 
-Python for .NET allows CLR namespaces to be treated essentially as
+Python.NET allows CLR namespaces to be treated essentially as
 Python packages.
 
 ```python
@@ -90,20 +90,20 @@ clr.AddReference("System.Windows.Forms")
 from System.Windows.Forms import Form
 ```
 
-**Note** Earlier releases of Python for .NET relied on "implicit loading"
+**Note** Earlier releases of Python.NET relied on "implicit loading"
 to support automatic loading of assemblies whose names corresponded to an
 imported namespace. Implicit loading still works for backward compatibility,
 but will be removed in a future release so it is recommended to use
 the `clr.AddReference` method.
 
-Python for .NET uses the PYTHONPATH (sys.path) to look for assemblies
+Python.NET uses the PYTHONPATH (sys.path) to look for assemblies
 to load, in addition to the usual application base and the GAC. To ensure
 that you can implicitly import an assembly, put the directory containing
 the assembly in `sys.path`.
 
 ## Using Classes
 
-Python for .NET allows you to use any non-private classes, structs,
+Python.NET allows you to use any non-private classes, structs,
 interfaces, enums or delegates from Python. To create an instance of a
 managed class, you use the standard instantiation syntax, passing a set
 of arguments that match one of its public constructors:
@@ -114,7 +114,7 @@ from System.Drawing import Point
 p = Point(5, 5)
 ```
 
-In most cases, Python for .NET can determine the correct constructor to
+In most cases, Python.NET can determine the correct constructor to
 call automatically based on the arguments. In some cases, it may be necessary
 to call a particular overloaded constructor, which is supported by a special
 `__overloads__` attribute, which will soon be deprecated in favor of
@@ -229,7 +229,7 @@ help(Environment)
 
 ## Overloaded and Generic Methods
 
-While Python for .NET will generally be able to figure out the right
+While Python.NET will generally be able to figure out the right
 version of an overloaded method to call automatically, there are cases
 where it is desirable to select a particular method overload explicitly.
 
@@ -384,7 +384,7 @@ the PythonNet assembly directory or on the PYTHONPATH in order to load them.
 
 ## Type Conversion
 
-Type conversion under Python for .NET is fairly straightforward - most
+Type conversion under Python.NET is fairly straightforward - most
 elemental Python types (string, int, long, etc.) convert automatically to
 compatible managed equivalents (String, Int32, etc.) and vice-versa.
 Note that all strings returned from the CLR are returned as unicode.
@@ -402,7 +402,7 @@ value type object to be created on the heap, which then has reference
 type semantics.
 
 Understanding boxing and the distinction between value types and reference
-types can be important when using Python for .NET because the Python
+types can be important when using Python.NET because the Python
 language has no value type semantics or syntax - in Python
 "everything is a reference".
 
@@ -468,7 +468,7 @@ differences between value types and reference types.
 
 ## Embedding Python
 
-**Note:** because Python code running under Python for .NET is inherently
+**Note:** because Python code running under Python.NET is inherently
 unverifiable, it runs totally under the radar of the security infrastructure
 of the CLR so you should restrict use of the Python assembly to trusted code.
 
@@ -494,7 +494,7 @@ call objects in a module you import.
 
 For general-purpose information on embedding Python in applications,
 use www.python.org or Google to find (C) examples. Because
-Python for .NET is so closely integrated with the managed environment,
+Python.NET is so closely integrated with the managed environment,
 you will generally be better off importing a module and deferring to
 Python code as early as possible rather than writing a lot of managed
 embedding code.
@@ -582,20 +582,24 @@ using (Py.GIL())
 
 ## License
 
-Python for .NET is released under the open source MIT License.
+Python.NET is released under the open source MIT License.
 A copy of the license is included in the distribution,
 or you can find a copy of the [license online][9].
 
 Some distributions of this package include a copy of the C Python dlls and
 standard library, which are covered by the [Python license][10].
 
+## .NET Foundation
+
+This project is supported by the [.NET Foundation](https://dotnetfoundation.org).
+
 [1]: http://www.ironpython.com
 
 [2]: http://pythonnet.github.io/
 
-[3]: http://mail.python.org/mailman/listinfo/pythondotnet
+[3]: https://mail.python.org/mailman3/lists/pythonnet.python.org/
 
-[4]: http://mail.python.org/pipermail/pythondotnet/
+[4]: https://mail.python.org/archives/list/pythonnet@python.org/
 
 [5]: https://github.com/pythonnet/pythonnet/releases
 
