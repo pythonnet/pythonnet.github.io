@@ -327,7 +327,7 @@ make it easy to create managed arrays from Python:
 ```python
 from System import Array
 
-myarray = Array[int](10)
+myarray = Array[int](range(10))
 ```
 
 Managed arrays support the standard Python sequence protocols:
