@@ -31,6 +31,8 @@ page. Use the [Python.NET issue tracker][55] to report issues.
 -   [Download releases][6] for various versions of Python and CLR.
 
 ## Installation
+Please refer to [the project wiki][78] for more detailed installation 
+instructions.
 
 Python.NET is available as a source release on [GitHub][5] and as a
 binary wheel distribution for all supported versions of Python and the
@@ -616,3 +618,5 @@ This project is supported by the [.NET Foundation](https://dotnetfoundation.org)
 [55]: http://github.com/pythonnet/pythonnet/issues
 
 [77]: http://github.com/pythonnet/pythonnet
+
+[78]: https://github.com/pythonnet/pythonnet/wiki/Installation
