@@ -255,6 +255,33 @@ someobject.SomeGenericMethod[int](10)
 someobject.SomeGenericMethod[str]("10")
 ```
 
+## Out and Ref parameters
+
+When a managed method has `out` or `ref` parameters, the arguments appear as 
+normal arguments in Python, but the return value of the method is modified.
+There are 3 cases:
+
+1. If the method is `void` and has one `out` or `ref` parameter, the method returns
+the value of that parameter to Python.  For example, if `someobject` has
+a managed method with signature `void SomeMethod1(out arg)`, it is called like so:
+```
+new_arg = someobject.SomeMethod1(arg)
+```
+where the value of `arg` is ignored, but its type is used for overload resolution.
+
+2. If the method is `void` and has multiple `out`/`ref` parameters, the method returns
+a tuple containing the `out`/`ref` parameter values.  For example, if `someobject` has
+a managed method with signature `void SomeMethod2(out arg, ref arg2)`, it is called like so:
+```
+new_arg, new_arg2 = someobject.SomeMethod2(arg, arg2)
+```
+
+3. Otherwise, the method returns a tuple containing the return value followed by the 
+`out`/`ref` parameter values.  For example:
+```
+found, new_value = dictionary.TryGetValue(key, value)
+``` 
+
 ## Delegates And Events
 
 Delegates defined in managed code can be implemented in Python.
@@ -273,6 +300,9 @@ d = AssemblyLoadEventHandler(my_handler)
 # use it as an event handler
 AppDomain.CurrentDomain.AssemblyLoad += d
 ```
+
+Delegates with `out` or `ref` parameters can be implemented in Python by
+following the convention described in [Out and Ref parameters].
 
 Multicast delegates can be implemented by adding more callable objects to
 a delegate instance:
