@@ -2,3 +2,6 @@
 _site/
 .sass-cache/
 .jekyll-metadata
+
+# Visual Studio cache/options directory
+.vs/
