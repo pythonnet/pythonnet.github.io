@@ -72,6 +72,7 @@ A good way to start is to interactively explore .NET usage in python
 interpreter by following along with the examples in this document. If you
 get stuck, there are also a number of demos and unit tests located in the
 source directory of the distribution that can be helpful as examples.
+Additionally, refer to the [wiki on GitHub][79], especially the **Tutorials** there.
 
 ## Importing Modules
 
@@ -650,3 +651,5 @@ This project is supported by the [.NET Foundation](https://dotnetfoundation.org)
 [77]: http://github.com/pythonnet/pythonnet
 
 [78]: https://github.com/pythonnet/pythonnet/wiki/Installation
+
+[79]: https://github.com/pythonnet/pythonnet/wiki
