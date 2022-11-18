@@ -57,7 +57,7 @@ or you can find a copy of the [license online][license].
 
 This project is supported by the [.NET Foundation](https://dotnetfoundation.org).
 
-[ipy]: http://www.ironpython.com
+[ipy]: https://ironpython.net/
 
 [ml]: https://mail.python.org/mailman3/lists/pythonnet.python.org/
 
@@ -79,6 +79,6 @@ This project is supported by the [.NET Foundation](https://dotnetfoundation.org)
 
 [doc-cl]: https://pythonnet.github.io/clr-loader/
 
-[gh-issues]: http://github.com/pythonnet/pythonnet/issues
+[gh-issues]: https://github.com/pythonnet/pythonnet/issues
 
-[repo]: http://github.com/pythonnet/pythonnet
+[repo]: https://github.com/pythonnet/pythonnet
