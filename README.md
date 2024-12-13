@@ -18,7 +18,7 @@ implementation of the Python language, you should check out the
 [IronPython][ipy] project, which is in active development.
 
 Python.NET is currently compatible and tested with Python releases
-3.7 - 3.12.
+3.7 - 3.13.
 
 To subscribe to the [Python.NET mailing list][ml] or read the
 [online archives][ml-arch] of the list, see the [mailing list information][ml]
